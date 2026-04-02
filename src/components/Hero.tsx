@@ -7,7 +7,7 @@ export const Hero = () => {
   return <div className=" sm:py-24 | py-[72px] bg-black text-white bg-[linear-gradient(to_bottom,#000,#200D42_34%,#4F21A1_65%,#A46EDB_82%)] relative overflow-clip">
 
     {/* Circular gradient */}
-    <div className='  sm:w-[1536px] sm:h-[768px] sm:top-[calc(100%-120px)] | absolute w-[750px] h-[375px] bg-black rounded-[100%] left-1/2 -translate-x-1/2 border border-[#B48CDE] bg-[radial-gradient(closest-side,#000,#000_82%,#9560EB)] top-[calc(100%-96px)]'></div>
+    <div className=' lg:h-[1200px] lg:w-[2400px] | sm:w-[1536px] sm:h-[768px] sm:top-[calc(100%-120px)] | absolute w-[750px] h-[375px] bg-black rounded-[100%] left-1/2 -translate-x-1/2 border border-[#B48CDE] bg-[radial-gradient(closest-side,#000,#000_82%,#9560EB)] top-[calc(100%-96px)]'></div>
 
     {/* Main content */}
     <div className="container relative">
