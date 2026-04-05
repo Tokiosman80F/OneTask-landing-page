@@ -20,7 +20,7 @@ const features = [
 export const Features = () => {
   return <div className=" sm:py-24| bg-black text-white py-[72px] ">
     <div className="container">
-      <h2 className=' text-6xl | text-5xl font-bold text-center tracking-tighter ' >Everything you need</h2>
+      <h2 className=' sm:text-6xl | text-5xl font-bold text-center tracking-tighter ' >Everything you need</h2>
      <div className='max-w-xl mx-auto'>
        <p className='mt-5 text-xl text-white/70 text-center' >Enjoy customizable lists, team work tools, and smart tracking all in one place. Set tasks, get reminders, and see your progress simply and quickly.</p>
      </div>
