@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 import appScreen from "../assets/images/app-screen.png";
 
 export const ProductShowcase = () => {
-  const appImage = useRef<HTMLDivElement>(null);
+  const appImage = useRef<HTMLImageElement>(null);
   const { scrollYProgress } = useScroll({
     target: appImage,
     offset: ["start end", "end end"],
@@ -15,7 +15,7 @@ export const ProductShowcase = () => {
     scrollYProgress.on("change", (latestValue) =>
       console.log("latest value", latestValue),
     );
-  }, []);
+  }, [scrollYProgress]);
 
   const rotateX = useTransform(scrollYProgress, [0, 1], [15, 0]);
   const opacity = useTransform(scrollYProgress, [0, 1], [0.5, 1]);
