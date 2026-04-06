@@ -3,11 +3,11 @@ import emojiStarImage from '../assets/images/emojistar.png'
 import Image from 'next/image';
 
 export const CallToAction = () => {
-  return <div className=" sm:py-24 | bg-black text-white py-[72px] ">
+  return <div className=" sm:py-24 | bg-black text-white py-[72px] overflow-x-clip ">
     <div className="container relative max-w-xl text-center">
 
-      <Image src={helixStarImage} alt="Helix star image" className='absolute  left-[calc(100%+24px)]'/>
-      <Image src={emojiStarImage} alt="Helix star image" className='absolute right-[calc(100%+24px)] -top-[124px]'/>
+      <Image src={helixStarImage} alt="Helix star image" className=' sm:block |  hidden absolute  left-[calc(100%+24px)] '/>
+      <Image src={emojiStarImage} alt="Helix star image" className=' sm:block |  hidden absolute right-[calc(100%+24px)] -top-[124px]'/>
 
       <h2 className="font-bold tracking-tighter text-5xl">Get instant access</h2>
       <p className="text-xl text-white/70 mt-5">Celebrate the joy of accomplishment with an app designed to track your progress and motivate your efforts.</p>
