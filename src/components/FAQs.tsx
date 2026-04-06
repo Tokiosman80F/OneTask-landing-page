@@ -1,8 +1,8 @@
-'use client'
+"use client";
+import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
-import PlusIcon from "../assets/icons/plus.svg"
-import MinusIcon from "../assets/icons/minus.svg"
-import clsx from "clsx";
+import MinusIcon from "../assets/icons/minus.svg";
+import PlusIcon from "../assets/icons/plus.svg";
 
 const items = [
   {
@@ -27,27 +27,64 @@ const items = [
   },
 ];
 
-
-const AccordianItem=({question,answer}:{question:string; answer:string})=>{
-  const [isOpen,setIsOpen]=React.useState(false)
-  return (<div key={question} className="  py-7 border-b border-white/30" onClick={()=>setIsOpen(!isOpen)} >
-              <div className="flex items-center"><span className=" flex-1 font-bold text-lg">{question}</span>{isOpen ? <MinusIcon/>:<PlusIcon />}</div>
-              <div className={clsx('mt-4',{
-                'hidden': !isOpen,
-                '':isOpen===true
-              })}>{answer}</div>
-            </div>)
-}
+const AccordianItem = ({
+  question,
+  answer,
+}: {
+  question: string;
+  answer: string;
+}) => {
+  const [isOpen, setIsOpen] = React.useState(false);
+  return (
+    <div
+      key={question}
+      className="  py-7 border-b border-white/30"
+      onClick={() => setIsOpen(!isOpen)}
+    >
+      <div className="flex items-center">
+        <span className=" flex-1 font-bold text-lg">{question}</span>
+        {isOpen ? <MinusIcon /> : <PlusIcon />}
+      </div>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{
+              opacity: 0,
+              height: 0,
+              marginTop: 0,
+            }}
+            animate={{
+              opacity: 1,
+              height: "auto",
+              marginTop: "16px",
+            }}
+            exit={{
+              opacity: 0,
+              height: 0,
+              marginTop: 0,
+            }}
+          >
+            {answer}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
 
 export const FAQs = () => {
-  return <div className=" sm:py-24 | bg-black text-white py-[72px] bg-gradient-to-b from-[#5D2CA8] to-black ">
-    <div className="container">
-      <h2 className="sm:max-w-[672px]  sm:text-6xl | mx-auto font-bold text-5xl tracking-tighter text-center">Frequently asked questions</h2>
-      <div className="sm:max-w-[672px]  | mx-auto mt-12">
-        {
-          items.map(({ question, answer }) => (<AccordianItem key={question} question={question} answer={answer}/>))
-        }
+  return (
+    <div className=" sm:py-24 | bg-black text-white py-[72px] bg-gradient-to-b from-[#5D2CA8] to-black ">
+      <div className="container">
+        <h2 className="sm:max-w-[672px]  sm:text-6xl | mx-auto font-bold text-5xl tracking-tighter text-center">
+          Frequently asked questions
+        </h2>
+        <div className="sm:max-w-[672px]  | mx-auto mt-12">
+          {items.map(({ question, answer }) => (
+            <AccordianItem key={question} question={question} answer={answer} />
+          ))}
+        </div>
       </div>
     </div>
-  </div>;
+  );
 };
