@@ -9,8 +9,8 @@ export const Feature = ({
   title: string;
   description: string;
 }) => {
-  const offsetX=useMotionValue(0)
-  const offsetY=useMotionValue(0)
+  const offsetX=useMotionValue(-100)
+  const offsetY=useMotionValue(-100)
   const maskImage=useMotionTemplate`radial-gradient(100px 100px at ${offsetX}px ${offsetY}px,black,transparent )`
 
   const border=useRef<HTMLDivElement>(null)
